@@ -1,0 +1,108 @@
+#map{
+    width: 70vh;
+    height: 60vh; 
+}
+#calc{
+    width: 120vh; /* Ширина изображения */
+    height: auto; /* Автоматическое вычисление высоты для сохранения пропорций */
+    border: 2px solid white; /* белая обводка */
+    box-shadow: 0 0 0 2px white, 0 0 0 6px black;
+}
+#calc:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 6px red; /* Изменяем box-shadow при наведении на изображение */
+}
+#header{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#calc_title{
+margin-top: 4vh;
+}
+#patent_form{
+text-align: center;
+}
+#title,#ITOGO_price{
+    font-family: 'TildaSansRegular';
+    font-style: normal;
+    font-weight: bolder;
+    background-color: #212529;
+    color: #ffffff;
+    font-size:4vh;
+    text-align: center; 
+}
+#final_price{
+    font-family: 'TildaSansRegular';
+    font-style: normal;
+    font-weight: bolder;
+    background-color: #212529;
+    color: #ffffff;
+    font-size:3.2vh;
+    text-align: center; 
+}
+.text-price{
+    min-width: 14vh;
+    text-align: right;
+}
+#ITOGO_UChET_GSM_price{
+    text-align: right;
+    min-width: 14vh;
+  }
+#ITOGO_AVANSOVYE_OTChETY_price{
+    text-align: right;
+    min-width: 14vh;
+}
+#ITOGO_OBOROTY_price{
+    text-align: right;
+    min-width: 14vh;
+}
+#PERVIChKA_ISHODYaShchAYa_price,#Itogo_kassa_price,#Itogo_kadry_price{
+    text-align: right;
+    min-width: 14vh;
+}
+.blockquote-wrapper{
+    margin-top: 3vh;
+}
+
+/* Button CSS */
+
+.btnmy {
+    font-family: 'TildaSansRegular';
+    font-style: normal;
+    font-weight: bolder;
+    border: solid 4px #df0c0c;
+    color: #df0c0c;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 5vh;
+    padding: 12px 28px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='17' fill='%23000000'%3E %3Cpath fill-rule='evenodd' d='M24.736 10.246v6.351l16.4-8.347-16.4-8.099v6.085H.541v4.01h24.195z'/%3E %3C/svg%3E"); */
+    background-position: right 32px center;
+    background-repeat: no-repeat;
+    background-size: 31px 12px;
+    /* padding-right: 80px; */
+}
+
+.btnmy:hover, .btnmy:focus {
+    background-color: #000;
+    border-color: #000;
+    color: #ffffff;
+    transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0px rgba(3,4,3,.2);
+    /* background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='17' fill='%23ffffff'%3E %3Cpath fill-rule='evenodd' d='M24.736 10.246v6.351l16.4-8.347-16.4-8.099v6.085H.541v4.01h24.195z'/%3E %3C/svg%3E"); */
+}
+
+.btnmy:active {
+  transform: translateY(0px);
+  box-shadow: 0px 0px 0px rgba(3,4,3,.15);
+}
+
+
+.btnmy:hover::after {
+    opacity: 1;
+}
+.btn-wrapper{
+    text-align: center;
+}

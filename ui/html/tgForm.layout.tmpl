@@ -1,0 +1,67 @@
+{{define "tgform"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff0b0b">
+
+  <title>О нашей бухгалтерской компании | Оставить заявку.</title>
+  <meta name="description" content= "Надежная и честная компания Бух эксперт окажет помощь в ведении бухгалтерских услуг. Бухгалтерские задачи не проблема. Офис в г. Коврове."/>
+
+  <link rel="stylesheet" href="/static/css/style.css">  
+  <link rel="stylesheet" href="/static/css/handle.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/TildaSans-Regular.css">
+  <link rel="stylesheet" href="/static/css/tg_style.css">
+
+  <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<main>
+<h1 id="mins" align="center" class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Оставьте заявку</h1>
+<p align="center" class="fs-3">
+	Наш сотрудник свяжется с вами<br />
+	в течение 30 минут!
+</p>
+
+	<!--Оставить заявку-->
+	<div id="send" class="container px-4">
+		<div class="row align-items-center g-lg-5">
+			<div class="col-md-10 mx-auto col-lg-5">
+				<form action="/succes_tgForm" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+					<div class="form-floating mb-3">
+						<input type="text" name="name" required class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович" />
+						<label for="floatingInput">Ваше имя</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="email" name="mail" required class="form-control" id="floatingInput" placeholder="name@example.com" />
+						<label for="floatingInput">Ваш Email</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="tel" name="phone" pattern="\+{0,1}[7-8]{1}[0-9]{3}[0-9]{3}[0-9]{4}" required class="form-control" id="floatingInput" placeholder="89201234567" />
+						<small class="text-body-secondary">Например: +79301234567</small>
+						<label for="floatingInput">Ваш телефон</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="problem" class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович" />
+						<small class="text-body-secondary">Необязательное поле</small>
+						<label for="floatingInput">Опишите проблему</label>
+					</div>
+					<button id="sender1" class="w-100 btn btn-lg btn-primary" type="submit">Отправить</button>
+					<hr class="my-4" />
+					<small class="text-body-secondary">Нажимая кнопку, вы даете согласие на обработку данных.</small>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+</body>
+</html>
+{{end}}

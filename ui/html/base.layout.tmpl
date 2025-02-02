@@ -1,0 +1,138 @@
+{{define "base"}}
+<!-- Заголовок с кнопками-->
+ <header>
+  <div class="bg-dark py-4">
+    <ul id="topli" class="nav nav-pills">
+      <li>
+        <a href="#calculator">
+          <button id="jobButton" class="btn btn-outline-light btn-lg px-5 py-3 me-sm-3" font-size:20px>Калькулятор</button>
+        </a>
+      </li>
+      <li>
+        <a href="#about">
+          <button id="aboutButton" class="btn btn-outline-light btn-lg px-5 py-3 me-sm-3" font-size:27px>О нас</button>
+        </a>
+      </li>
+      <li class="nav-item"><a href="#send" class="btn btn-primary btn-lg px-4 me-sm-3" style="font-size:31px"><b>Оставить заявку</b></a></li>
+    </ul>
+    </div>
+</header>
+<main>
+ <!-- Список решаемых задач и принципы работы -->
+  <div id="work">
+    <div class="row align-items-center">
+      <div class="wrapper1">
+        <h1 id="work1"><b>Какие задачи мы решаем?</b></h1>
+      </div>
+      <ol class="gradient-list">
+        <li>Составление деклараций и расчетов в налоговые органы, внебюджетные фонды, органы статистики в соответствии с законодательством.</li>
+        <li>Представление отчетности в контролирующие органы по доверенности по электронным каналам связи.</li>
+        <li>Консультации по вопросам бухгалтерского учета, налогообложения, кадрового учета.</li>
+        <li>Проведение сверки расчетов с бюджетом и внебюджетными фондами.</li>
+        <li>Расчеты по заработной плате, кадровой учет наемных работников.</li>
+        <li>Ведение бухгалтерского и/или налогового учета.</li>
+      </ol>
+
+<div class="blockquote-wrapper">
+  <div class="blockquote-alert">
+    <text id="metka">
+      Выбирая нас вы избавляетесь от дополнительных затрат на штатного бухгалтера, содержание места и техники бухгалтерии. Мы гарантируем качественое решение бухгалтерских вопросов, отсутствие штрафов и самую низкую цену в данной сфере.
+     </text>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+
+
+   <!-- Калькулятор -->
+   <hr id="calculator" class="hr-shadow">
+  <div id="work">
+    <div class="row align-items-center">
+      <div class="wrapper1">
+        <h1 id="work1"><b>Узнайте стоимость бухгалтерского обслуживаниея в нашем калькуляторе.</b></h1>
+          
+<div class="btn-wrapper">
+  <a class="center-btn btnmy btn-default" href="calculator">Расчитать стоимость</a>  
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  
+  <!--Оставить заявку-->
+  <hr id="beforeSend" class="hr-shadow">
+  <div id="send" class="container px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">   
+<h1 id="mins" align="center" class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Оставьте заявку</h1>
+<p align="center" class="fs-3">Наш сотрудник свяжется с вами<br> в течение 30 минут!</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form action="/save_info" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="text" name="name" required class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович">
+            <label for="floatingInput">Ваше имя</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" name="mail" required class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Ваш Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="tel" name="phone" pattern="\+{0,1}[7-8]{1}[0-9]{3}[0-9]{3}[0-9]{4}" required class="form-control" id="floatingInput" placeholder="89201234567">
+            <small class="text-body-secondary">Например: +79301234567</small>
+            <label for="floatingInput">Ваш телефон</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="problem" class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович">
+            <small class="text-body-secondary">Необязательное поле</small>
+            <label for="floatingInput">Опишите проблему</label>
+          </div>
+          <button id="sender1" class="w-100 btn btn-lg btn-primary" type="submit">Отправить</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Нажимая кнопку, вы даете согласие на обработку данных.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!--О нас-->
+<div id="about" class="bg-dark text-secondary px-4 py-4">
+  <div id="contacts" class="py-3 px-3">
+    <h1 class="display-5 fw-bold text-white">Вы найдете нас: </h1>
+    <a id="links" href="tel:+79157779640">
+      <img title="+79157779640" src="/static/img/phone.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://vk.com/id771511235">
+      <img title="https://vk.com/id771511235" src="static/img/vk.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://t.me/Marisha33">
+      <img title="https://t.me/Marisha33" src="static/img/telegram.ico" width="57" alt="Иконка">
+    </a>
+    <a id="links" href="mailto:Buhnk33@mail.ru">
+      <img title="Buhnk33@mail.ru" src="static/img/mail.ico" width="50" alt="Иконка">
+    </a>
+    <div class="mx-auto">
+      <p class="fs-5 mb-4">Бухгалтерские услуги.<br> Город Ковров, ул. Шмидта, д.11, каб. 14.
+        <br>Контактный телефон 89157779640 Борисова Марина Сергеевна</p>
+
+<a href="/about">
+          <button id="aboutButton" class="btn btn-outline-light btn-lg px-5 py-3 me-sm-3" font-size:27px="">Узнать больше</button>
+        </a>
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      </div>
+    </div>
+  </div>
+<!--Карта -->
+<div id="map">
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3532b5a1f39d87f694fb97e2993b0755d844860cf55911a274004e4267feae4c&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+</div>
+</body>
+</html>
+{{end}}

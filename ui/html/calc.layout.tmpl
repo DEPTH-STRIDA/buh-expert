@@ -1,0 +1,389 @@
+{{define "calc"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff0b0b">
+
+  <title>КАЛЬКУЛЯТОР БУХГАЛТЕРСКОГО ОБСЛУЖИВАНИЯ</title>
+  <meta name="description" content= "Оцените стоимость бухгалтерских услуг онлайн с нашим удобным калькулятором! Мы ценим прозрачность, поэтому наши тарифы четко представлены в калькуляторе, гарантируя полное понимание стоимости услуг до заказа. "/>
+
+  <link rel="stylesheet" href="/static/css/handle.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/TildaSans-Regular.css">
+  <link rel="stylesheet" href="/static/css/style.css">  
+
+  <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/counter.js"></script>
+
+  
+</head>
+<body>
+<!-- Заголовок с кнопками-->
+ <header>
+  <div class="bg-dark py-4">
+    <ul id="topli" class="nav nav-pills">
+	  <li class="nav-item"><a href="/" class="btn btn-primary btn-lg px-4 me-sm-3" style="font-size:31px"><b>На главную</b></a></li>
+      <li class="nav-item"><a href="#send" class="btn btn-primary btn-lg px-4 me-sm-3" style="font-size:31px"><b>Оставить заявку</b></a></li>
+    </ul>
+    </div>
+</header>
+<main>
+
+
+<table id="tablebody" class="table-fill">
+	<tbody class="table-hover">
+      <tr>
+        <td colspan="3" id="title" class="colspan">КАЛЬКУЛЯТОР БУХГАЛТЕРСКОГО ОБСЛУЖИВАНИЯ</td>
+      </tr>
+		<tr>
+			<td class="itogo">НАИМЕНОВАНИЕ РАБОТ</td>
+			<td class="itogo">ОБЪЕМЫ</td>
+      <td class="itogo">СТОИМОСТЬ</td>
+		</tr>
+		<tr>
+			<td class="text-left">ФОРМА СОБСТВЕННОСТИ И СИСТЕМА НАЛОГОБЛОЖЕНИЯ</td>
+			<td class="text-left">
+        <select class="forma" id="FORMA_SOBSTVENNOSTI" name="mySelect">
+          <option value="option1">ООО ОСНО</option>
+          <option value="option2">ООО УСН 15%</option>
+          <option value="option3">ООО УСН 6%</option>
+          <option value="option4">ИП УСН 15%</option>
+          <option value="option5">ИП УСН 6%</option>
+          <option value="option6">ИП ОСНО</option>
+          <option value="option7">Нулевка ОСНО</option>
+          <option value="option8">Нулевка УСН</option>
+        </select>
+        </td>
+      <td class="text-price" id="FORMA_SOBSTVENNOSTI_price">0</td>
+		</tr>
+		<tr>
+			<td class="text-left">ПАТЕНТ</td>
+			<td  class="text-center"><input type="checkbox" class="checkbox_style" id="PATENT" name="myCheckbox"></td>
+      <td class="text-price" id="PATENT_price">0</td>
+		</tr>
+    <tr>
+			<td class="text-left">ДОП.ПАТЕНТ</td>
+			<td class="text-left"><input type="text" class="counter" id="DOP_PATENT" placeholder="Количество" /></td>
+      <td class="text-price" id="DOP_PATENT_price">0</td>
+		</tr>
+    <tr>
+        <td colspan="3" id="title" class="colspan">МАРКЕТПЛЕЙСЫ</td>
+    </tr>
+      <tr>
+			<td class="text-left">WB</td>
+			<td class="text-left">
+        <select class="forma" id="WB" name="mySelect">
+          <option value="option1">-</option>
+          <option value="option2">до 20 номенклатур</option>
+          <option value="option3">до 50 номенклатур</option>
+          <option value="option4">до 100 номенклатур</option>
+        </select>
+        </td>
+      <td class="text-price" id="WB_price">0</td>
+		</tr>
+    <tr>
+			<td class="text-left">Ведение товарного учета</td>
+			<td  class="text-center"><input type="checkbox" class="checkbox_style" id="Vedenie_tovarnogo_ucheta_WB" name="myCheckbox"></td>
+      <td class="text-price" id="Vedenie_tovarnogo_ucheta_WB_price">0</td>
+		</tr>
+    <tr>
+			<td class="text-left">OZON</td>
+			<td class="text-left">
+        <select class="forma" id="OZON" name="mySelect">
+          <option value="option1">-</option>
+          <option value="option2">до 20 номенклатур</option>
+          <option value="option3">до 50 номенклатур</option>
+          <option value="option4">до 100 номенклатур</option>
+        </select>
+        </td>
+      <td class="text-price" id="OZON_price">0</td>
+		</tr>
+    <tr>
+			<td class="text-left">Ведение товарного учета</td>
+			<td  class="text-center"><input type="checkbox" class="checkbox_style" id="Vedenie_tovarnogo_ucheta_OZON" name="myCheckbox"></td>
+      <td class="text-price" id="Vedenie_tovarnogo_ucheta_OZON_price">0</td>
+		</tr>
+     <tr>
+			  <td class="itogo">ИТОГО МАРКЕТПЛЕЙСЫ</td>
+        <td class="itogo"></td>
+        <td class="itogo" id="ITOGO_MARKETPLEJSY_price">0</td>
+		  </tr>
+      <tr>
+        <td colspan="3" id="title" class="colspan">Кадры</td>
+      </tr>
+      <tr>
+			  <td class="text-left">Кадры ИП</td>
+			  <td class="text-center"><input type="checkbox" class="checkbox_style" id="Kadry_IP" name="myCheckbox"></td>
+        <td class="text-price" id="Kadry_IP_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Сотрудники РФ</td>
+			  <td class="text-left"><input type="text" class="counter" id="Sotrudniki_RF" placeholder="Количество" /></td>
+        <td class="text-price" id="Sotrudniki_RF_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Сотрудники нерезиденты</td>
+			  <td class="text-left"><input type="text" class="counter" id="Sotrudniki_nerezidenty" placeholder="Количество" /></td>
+        <td class="text-price" id="Sotrudniki_nerezidenty_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="itogo">Итого кадры:</td>
+        <td class="itogo"></td>
+        <td class="itogo" id="Itogo_kadry_price">0</td>
+		  </tr>
+      
+      <tr>
+        <td colspan="3" id="title" class="colspan">Банк</td>
+      </tr>
+      <tr>
+			  <td class="text-left">Банковская выписка более 100 позиций</td>
+			  <td class="text-left"><input type="text" class="counter" id="Bankovskaya_vypiska_bolee_100_pozicij" placeholder="Количество" /></td>
+        <td class="text-price" id="Bankovskaya_vypiska_bolee_100_pozicij_price">0</td>
+		  </tr>
+      <tr>
+			<td class="text-left">Платежка контрагенту</td>
+			<td class="text-left">
+        <select class="forma" id="Platezhka_kontragentu" name="mySelect">
+          <option value="option1">-</option>
+          <option value="option2">01-10</option>
+          <option value="option3">11-25</option>
+          <option value="option4">26-50</option>
+          <option value="option5">51-100</option>
+          <option value="option6">более 100</option>
+        </select>
+      </td>
+      <td class="text-price" id="Platezhka_kontragentu_price">0</td>
+		</tr>
+     <tr>
+        <td colspan="3" id="title" class="colspan">Касса</td>
+      </tr>
+      <tr>
+			  <td class="text-left">ПКО РКО</td>
+			  <td class="text-left"><input type="text" class="counter" id="PKO_RKO" placeholder="Количество" /></td>
+        <td class="text-price" id="PKO_RKO_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Кассовая книга</td>
+			  <td class="text-left"><input type="text" class="counter" id="Kassovaya_kniga" placeholder="Количество" /></td>
+        <td class="text-price" id="Kassovaya_kniga_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="itogo">Итого касса</td>
+        <td class="itogo"></td>
+        <td class="itogo" id="Itogo_kassa_price">0</td>
+		  </tr>
+      <tr>
+        <td colspan="3" id="title" class="colspan">Обороты</td>
+      </tr>
+      <tr>
+			<td class="text-left">ПЕРВИЧКА ВХОДЯЩАЯ</td>
+			<td class="text-left">
+        <select class="forma" id="PERVIChKA_VHODYaShchAYa" name="mySelect">
+          <option value="option1">МЫ ВНОСИМ</option>
+          <option value="option2">МЫ ПРОВЕРЯЕМ</option>
+        </select>
+      </td>
+      <td class="text-price" id="PERVIChKA_VHODYaShchAYa_price">0</td>
+		</tr>
+    <tr>
+			  <td class="text-left">Первчика вх до 5 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_vh_do_5" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_vh_do_5_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Первчика вх до 20 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_vh_do_20" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_vh_do_20_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Первчика вх до 50 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_vh_do_50" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_vh_do_50_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Первчика вх более 50 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_vh_bolee_50" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_vh_bolee_50_price">0</td>
+		  </tr>
+      <td class="text-left">ПЕРВИЧКА ИСХОДЯЩАЯ</td>
+			<td class="text-left">
+        <select class="forma" id="PERVIChKA_ISHODYaShchAYa" name="mySelect">
+          <option value="option1">МЫ ВНОСИМ</option>
+          <option value="option2">МЫ ПРОВЕРЯЕМ</option>
+        </select>
+        <td class="text-left" id="PERVIChKA_ISHODYaShchAYa_price">0</td>
+      </td>
+      <tr>
+			  <td class="text-left">Первчика исх до 5 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_ish_do_5" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_ish_do_5_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Первчика исх до 20 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_ish_do_20" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_ish_do_20_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Первчика исх до 50 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_ish_do_50" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_ish_do_50_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Первчика исх более 50 номенклатур</td>
+			  <td class="text-left"><input type="text" class="counter" id="pervichka_ish_bolee_50" placeholder="Количество" /></td>
+        <td class="text-price" id="pervichka_ish_bolee_50_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="itogo">ИТОГО ОБОРОТЫ</td>
+        <td class="itogo"></td>
+        <td class="itogo" id="ITOGO_OBOROTY_price">0</td>
+		  </tr>
+      <tr>
+        <td colspan="3" id="title" class="colspan">АВАНСОВЫЕ ОТЧЕТЫ</td>
+      </tr>
+      <tr>
+			  <td class="text-left">Авансовый отчет 10 чеков</td>
+			  <td class="text-left"><input type="text" class="counter" id="Avansovyj_otchet_10_chekov" placeholder="Количество" /></td>
+        <td class="text-price" id="Avansovyj_otchet_10_chekov_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">Авансовый отчет 50 чеков</td>
+			  <td class="text-left"><input type="text" class="counter" id="Avansovyj_otchet_50_chekov" placeholder="Количество" /></td>
+        <td class="text-price" id="Avansovyj_otchet_50_chekov_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="itogo">ИТОГО АВАНСОВЫЕ ОТЧЕТЫ</td>
+        <td class="itogo"></td>
+        <td class="itogo" id="ITOGO_AVANSOVYE_OTChETY_price">0</td>
+		  </tr>
+       <tr>
+			  <td class="text-left">АКТЫ СВЕРОК на 1 контрагента</td>
+			  <td class="text-left"><input type="text" class="counter" id="AKTY_SVEROK_na_1_kontragenta" placeholder="Количество" /></td>
+        <td class="text-price" id="AKTY_SVEROK_na_1_kontragenta_price">0</td>
+		  </tr>
+      <tr>
+			  <td class="text-left">ОСНОВНОЕ СРЕДСТВО</td>
+			  <td class="text-left"><input type="text" class="counter" id="OSNOVNOE_SREDSTVO" placeholder="Количество" /></td>
+        <td class="text-price" id="OSNOVNOE_SREDSTVO_price">0</td>
+		  </tr>
+      <!--
+      <tr>
+			  <td class="text-left">УЧЕТ ГСМ</td>
+			  <td class="text-left"><input type="text" class="counter" id="UChET_GSM" placeholder="Количество" /></td>
+        <td class="text-price" id="UChET_GSM_price">0</td>
+		  </tr>
+      -->
+      <tr>
+			  <td class="itogo">ИТОГО УЧЕТ ГСМ</td>
+        <td class="itogo"></td>
+        <td class="itogo" id="ITOGO_UChET_GSM_price">0</td>
+		  </tr>
+       <tr>
+			  <td class="text-left">ДОГОВОР ЗАЙМА</td>
+			  <td class="text-left"><input type="text" class="counter" id="DOGOVOR_ZAJMA" placeholder="Количество" /></td>
+        <td class="text-price" id="DOGOVOR_ZAJMA_price">0</td>
+		  </tr>
+       <tr>
+			  <td class="text-left">ДОГОВОР КРЕДИТА</td>
+			  <td class="text-left"><input type="text" class="counter" id="DOGOVOR_KREDITA" placeholder="Количество" /></td>
+        <td class="text-price" id="DOGOVOR_KREDITA_price">0</td>
+		  </tr>
+       <tr>
+			  <td class="text-left">ДОГОВОР ЛИЗИНГА</td>
+			  <td class="text-left"><input type="text" class="counter" id="DOGOVOR_LIZINGA" placeholder="Количество" /></td>
+        <td class="text-price" id="DOGOVOR_LIZINGA_price">0</td>
+		  </tr>
+      <!--
+       <tr>
+			  <td class="text-left">ВЭД</td>
+			  <td class="text-left"><input type="text" class="counter" id="VED" placeholder="Количество" /></td>
+        <td class="text-price" id="VED_price">0</td>
+		  </tr>
+      -->
+      <tr>
+			<td class="text-left">ПРОИЗВОДСТВО (БАЗА)</td>
+			<td class="text-center"><input type="checkbox" class="checkbox_style" id="PROIZVODSTVO_BAZA" name="myCheckbox"></td>
+      <td class="text-price" 
+      id="PROIZVODSTVO_BAZA_price">0</td>
+		</tr>
+      <tr>
+        <td colspan="3" class="colspan" id="final_price">ИТОГО СТОИМОСТЬ ОБСЛУЖИВАНИЯ В МЕСЯЦ 0 руб</td>
+      </tr>
+	</tbody>
+</table>
+
+
+
+
+ <hr id="beforeSend" class="hr-shadow">
+  <!--Оставить заявку-->
+  <div id="send" class="container px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">   
+<h1 id="mins" align="center" class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Оставьте заявку</h1>
+<p align="center" class="fs-3">Наш сотрудник свяжется с вами<br> в течение 30 минут!</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form action="/save_info" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="text" name="name" required class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович">
+            <label for="floatingInput">Ваше имя</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" name="mail" required class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Ваш Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="tel" name="phone" pattern="\+{0,1}[7-8]{1}[0-9]{3}[0-9]{3}[0-9]{4}" required class="form-control" id="floatingInput" placeholder="89201234567">
+            <small class="text-body-secondary">Например: +79301234567</small>
+            <label for="floatingInput">Ваш телефон</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="problem" class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович">
+            <small class="text-body-secondary">Необязательное поле</small>
+            <label for="floatingInput">Опишите проблему</label>
+          </div>
+          <button id="sender1" class="w-100 btn btn-lg btn-primary" type="submit">Отправить</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Нажимая кнопку, вы даете согласие на обработку данных.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<!--О нас-->
+<div id="about" class="bg-dark text-secondary px-4 py-4">
+  <div id="contacts" class="py-5 px-5">
+    <h1 class="display-5 fw-bold text-white">Вы найдете нас: </h1>
+    <a id="links" href="tel:+79157779640">
+      <img title="+79157779640" src="/static/img/phone.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://vk.com/id771511235">
+      <img title="https://vk.com/id771511235" src="static/img/vk.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://t.me/Marisha33">
+      <img title="https://t.me/Marisha33" src="static/img/telegram.ico" width="57" alt="Иконка">
+    </a>
+    <a id="links" href="mailto:Buhnk33@mail.ru">
+      <img title="Buhnk33@mail.ru" src="static/img/mail.ico" width="50" alt="Иконка">
+    </a>
+    <div class="mx-auto">
+      <p class="fs-5 mb-4">Бухгалтерские услуги.<br> Город Ковров, ул. Шмидта, д.11, каб. 14.
+        <br>Контактный телефон 89157779640 Борисова Марина Сергеевна</p>
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      </div>
+    </div>
+  </div>
+<!--Карта -->
+<div id="map">
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3532b5a1f39d87f694fb97e2993b0755d844860cf55911a274004e4267feae4c&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+</div>
+</body>
+</html>
+{{end}}

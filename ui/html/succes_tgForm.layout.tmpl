@@ -1,0 +1,119 @@
+{{define "succes_tgForm"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff0b0b">
+
+  <title>О нашей бухгалтерской компании | Оставить заявку.</title>
+  <meta name="description" content= "Надежная и честная компания Бух эксперт окажет помощь в ведении бухгалтерских услуг. Бухгалтерские задачи не проблема. Офис в г. Коврове."/>
+
+  <link rel="stylesheet" href="/static/css/style.css">  
+  <link rel="stylesheet" href="/static/css/handle.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/TildaSans-Regular.css">
+
+  <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<main>
+
+
+{{if .Name}}
+    <div class="senderholder">
+<div class="senderText">
+<blockquote class="blockquote-10">
+    <p>Ваша заявка успешно отправлена.</p>
+
+	<p id="otstup">
+	Проверьте правильность ввода<br>
+	{{.Name}}<br>
+	{{.Phone}}<br>
+	{{.Mail}}<br>
+	</p>
+
+	<p id="otstup">
+	{{.Problem}}
+	</p>
+</blockquote>
+</div>
+</div>
+{{end}}
+</div>
+
+
+ <hr id="beforeSend" class="hr-shadow">
+
+ 
+ <h1 id="mins" align="center" class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Оставьте заявку</h1>
+<p align="center" class="fs-3">
+	Наш сотрудник свяжется с вами<br />
+	в течение 30 минут!
+</p>
+
+	<!--Оставить заявку-->
+	<div id="send" class="container px-4">
+		<div class="row align-items-center g-lg-5">
+			<div class="col-md-10 mx-auto col-lg-5">
+				<form action="/save_info" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+					<div class="form-floating mb-3">
+						<input type="text" name="name" required class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович" />
+						<label for="floatingInput">Ваше имя</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="email" name="mail" required class="form-control" id="floatingInput" placeholder="name@example.com" />
+						<label for="floatingInput">Ваш Email</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="tel" name="phone" pattern="\+{0,1}[7-8]{1}[0-9]{3}[0-9]{3}[0-9]{4}" required class="form-control" id="floatingInput" placeholder="89201234567" />
+						<small class="text-body-secondary">Например: +79301234567</small>
+						<label for="floatingInput">Ваш телефон</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="problem" class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович" />
+						<small class="text-body-secondary">Необязательное поле</small>
+						<label for="floatingInput">Опишите проблему</label>
+					</div>
+					<button id="sender1" class="w-100 btn btn-lg btn-primary" type="submit">Отправить</button>
+					<hr class="my-4" />
+					<small class="text-body-secondary">Нажимая кнопку, вы даете согласие на обработку данных.</small>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</main>
+<!--О нас-->
+<div id="about" class="bg-dark text-secondary px-4 py-4">
+  <div id="contacts" class="py-5 px-5">
+    <h1 class="display-5 fw-bold text-white">Вы найдете нас: </h1>
+    <a id="links" href="tel:+79157779640">
+      <img title="+79157779640" src="/static/img/phone.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://vk.com/id771511235">
+      <img title="https://vk.com/id771511235" src="static/img/vk.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://t.me/Marisha33">
+      <img title="https://t.me/Marisha33" src="static/img/telegram.ico" width="57" alt="Иконка">
+    </a>
+    <a id="links" href="mailto:Buhnk33@mail.ru">
+      <img title="Buhnk33@mail.ru" src="static/img/mail.ico" width="50" alt="Иконка">
+    </a>
+    <div class="mx-auto">
+      <p class="fs-5 mb-4">Бухгалтерские услуги.<br> Город Ковров, ул. Шмидта, д.11, каб. 14.
+        <br>Контактный телефон 89157779640 Борисова Марина Сергеевна</p>
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      </div>
+    </div>
+  </div>
+  
+</div>
+</body>
+</html>
+{{end}}

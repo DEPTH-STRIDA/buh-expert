@@ -1,0 +1,213 @@
+{{define "succes"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff0b0b">
+
+  <title>О нашей бухгалтерской компании | Оставить заявку.</title>
+  <meta name="description" content= "Надежная и честная компания Бух эксперт окажет помощь в ведении бухгалтерских услуг. Бухгалтерские задачи не проблема. Офис в г. Коврове."/>
+
+  <link rel="stylesheet" href="/static/css/style.css">  
+  <link rel="stylesheet" href="/static/css/handle.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/TildaSans-Regular.css">
+
+  <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<!-- Заголовок с кнопками-->
+ <header>
+  <div class="bg-dark py-4">
+    <ul id="topli" class="nav nav-pills">
+	  <li class="nav-item"><a href="/" class="btn btn-primary btn-lg px-4 me-sm-3" style="font-size:31px"><b>На главную</b></a></li>
+      <li class="nav-item"><a href="#send" class="btn btn-primary btn-lg px-4 me-sm-3" style="font-size:31px"><b>Оставить заявку</b></a></li>
+    </ul>
+    </div>
+</header>
+<main>
+
+
+{{if .Name}}
+    <div class="senderholder">
+<div class="senderText">
+<blockquote class="blockquote-10">
+    <p>Ваша заявка успешно отправлена.</p>
+
+	<p id="otstup">
+	Проверьте правильность ввода<br>
+	{{.Name}}<br>
+	{{.Phone}}<br>
+	{{.Mail}}<br>
+	</p>
+
+	<p id="otstup">
+	{{.Problem}}
+	</p>
+</blockquote>
+</div>
+</div>
+{{end}}
+
+<div class="blockquote-wrapper">
+  <div class="blockquote">
+    <text id="metka">
+      В любой момент Вы можете удостовериться в нас. Все документы доступны на официальных порталах РФ.
+     </text>
+  </div>
+</div>
+
+
+<hr id="beforeSend" class="hr-shadow">
+<div class="files">
+<table id="tablebody" class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Коды статистики</th>
+<th class="text-left"></th>
+</tr>
+</thead>
+<tbody class="table-hover">
+<tr>
+<td class="text-left">ОКПО / Идентификационный номер ТОСП</td>
+<td class="text-left">0181153203</td>
+</tr>
+<tr>
+<td class="text-left">ОГРН / ОГРНИП</td>
+<td class="text-left">311333232200056</td>
+</tr>
+<tr>
+<td class="text-left">Дата регистрации</td>
+<td class="text-left">2011-11-18</td>
+</tr>
+<tr>
+<td class="text-left">ИНН</td>
+<td class="text-left">331781458425</td>
+</tr>
+<tr>
+<td class="text-left">ОКАТО фактический</td>
+<td class="text-left">17425000000 - Ковров</td>
+</tr>
+<tr>
+<td class="text-left">ОКАТО регистрации</td>
+<td class="text-left">17425000000 - Ковров</td>
+</tr>
+<tr>
+<td class="text-left">ОКТМО фактический</td>
+<td class="text-left">17725000001 - г Ковров</td>
+</tr>
+<tr>
+<td class="text-left">ОКТМО регистрации</td>
+<td class="text-left">17725000001 - г Ковров</td>
+</tr>
+<tr>
+<td class="text-left">ОКОГУ</td>
+<td class="text-left">4210015 - Индивидуальные предприниматели</td>
+</tr>
+<tr>
+<td class="text-left">оКФС</td>
+<td class="text-left">16 - Частная собственность</td>
+</tr>
+<tr>
+<td class="text-left">ОКОПФ</td>
+<td class="text-left">50102 - Индивидуальные предприниматели</td>
+</tr>
+</tbody>
+</table>
+
+
+ <div>
+      <object
+        data='/static/other/fl-311333232200056-20230821133802.pdf'
+        type="application/pdf"
+        width="500"
+        height="678"
+      >
+
+        <iframe
+          src='/static/other/fl-311333232200056-20230821133802.pdf'
+          width="500"
+          height="678"
+        >
+        <p>This browser does not support PDF!</p>
+        </iframe>
+      </object>
+    </div>
+
+<!--  <iframe id="file" src="/static/other/fl-311333232200056-20230821133802.pdf" width="100%" height="100%"></iframe>  -->
+
+
+</div>
+
+ <hr id="beforeSend" class="hr-shadow">
+  <!--Оставить заявку-->
+  <div id="send" class="container px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">   
+<h1 id="mins" align="center" class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Оставьте заявку</h1>
+<p align="center" class="fs-3">Наш сотрудник свяжется с вами<br> в течение 30 минут!</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form action="/save_info" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="text" name="name" required class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович">
+            <label for="floatingInput">Ваше имя</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" name="mail" required class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Ваш Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="tel" name="phone" pattern="\+{0,1}[7-8]{1}[0-9]{3}[0-9]{3}[0-9]{4}" required class="form-control" id="floatingInput" placeholder="89201234567">
+            <small class="text-body-secondary">Например: +79301234567</small>
+            <label for="floatingInput">Ваш телефон</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" name="problem" class="form-control" id="floatingInput" placeholder="Иванов Иван Иванович">
+            <small class="text-body-secondary">Необязательное поле</small>
+            <label for="floatingInput">Опишите проблему</label>
+          </div>
+          <button id="sender1" class="w-100 btn btn-lg btn-primary" type="submit">Отправить</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Нажимая кнопку, вы даете согласие на обработку данных.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<!--О нас-->
+<div id="about" class="bg-dark text-secondary px-4 py-4">
+  <div id="contacts" class="py-5 px-5">
+    <h1 class="display-5 fw-bold text-white">Вы найдете нас: </h1>
+    <a id="links" href="tel:+79157779640">
+      <img title="+79157779640" src="/static/img/phone.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://vk.com/id771511235">
+      <img title="https://vk.com/id771511235" src="static/img/vk.ico" width="50" alt="Иконка">
+    </a>
+    <a id="links" href="https://t.me/Marisha33">
+      <img title="https://t.me/Marisha33" src="static/img/telegram.ico" width="57" alt="Иконка">
+    </a>
+    <a id="links" href="mailto:Buhnk33@mail.ru">
+      <img title="Buhnk33@mail.ru" src="static/img/mail.ico" width="50" alt="Иконка">
+    </a>
+    <div class="mx-auto">
+      <p class="fs-5 mb-4">Бухгалтерские услуги.<br> Город Ковров, ул. Шмидта, д.11, каб. 14.
+        <br>Контактный телефон 89157779640 Борисова Марина Сергеевна</p>
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      </div>
+    </div>
+  </div>
+<!--Карта -->
+<div id="map">
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3532b5a1f39d87f694fb97e2993b0755d844860cf55911a274004e4267feae4c&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+</div>
+</body>
+</html>
+{{end}}
